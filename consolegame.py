@@ -1,4 +1,5 @@
 from random import randint
+from time import sleep
 
 def rock_paper_scissor():
 
@@ -162,7 +163,32 @@ def dice_rolling_simulator():
         
         else:
             print("\nInvalid Input. Please check the option number and try again.\n\n")
+def toss_coin():
+    print("\n--------------------------")
+    print("|        Toss Coin       |")
+    print("--------------------------\n")
 
+    while True:
+        input("Press Enter to toss the coin...")
+
+        rand_num = randint(0, 1)
+
+        print("\nFlipping the coin...")
+        for _ in range(3):
+            print(".", end='', flush=True)
+            sleep(0.5)  # Introducing a delay for a more dramatic effect
+
+        print()  # New line
+
+        if rand_num == 1:
+            print("Your coin landed on Tails!")
+        else:
+            print("Your coin landed on Heads!")
+
+        another_toss = input("\nDo you want to toss the coin again? (y/n): ")
+
+        if another_toss.lower() != "y":
+            break
 def main_menu():
 
     while True:
@@ -172,6 +198,7 @@ def main_menu():
         print("\n1 . Rock Paper Scissor")
         print("2 . Number Guessing Game")
         print("3 . Dice Rolling Simulator")
+        print("4 . Toss The Coin")
         print("0 . Exit")
 
         main_choice = int(input("\n_ : "))
@@ -187,6 +214,10 @@ def main_menu():
         elif main_choice == 3:
 
             dice_rolling_simulator()
+
+        elif main_choice == 4:
+
+            toss_coin()
 
         elif main_choice == 0:
 
